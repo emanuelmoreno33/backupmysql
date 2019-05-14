@@ -1,0 +1,26 @@
+C:\Users\terre\source\repos\backup sql server\backup sql server\bin\Debug\backup sql server.exe.config
+C:\Users\terre\source\repos\backup sql server\backup sql server\bin\Debug\backup sql server.exe
+C:\Users\terre\source\repos\backup sql server\backup sql server\bin\Debug\backup sql server.pdb
+C:\Users\terre\source\repos\backup sql server\backup sql server\bin\Debug\Microsoft.SqlServer.ConnectionInfo.dll
+C:\Users\terre\source\repos\backup sql server\backup sql server\bin\Debug\Microsoft.SqlServer.ConnectionInfoExtended.dll
+C:\Users\terre\source\repos\backup sql server\backup sql server\bin\Debug\Microsoft.SqlServer.Smo.dll
+C:\Users\terre\source\repos\backup sql server\backup sql server\bin\Debug\Microsoft.SqlServer.SmoExtended.dll
+C:\Users\terre\source\repos\backup sql server\backup sql server\bin\Debug\Microsoft.SqlServer.SqlClrProvider.dll
+C:\Users\terre\source\repos\backup sql server\backup sql server\bin\Debug\Microsoft.SqlServer.Management.Sdk.Sfc.dll
+C:\Users\terre\source\repos\backup sql server\backup sql server\bin\Debug\Microsoft.SqlServer.SqlEnum.dll
+C:\Users\terre\source\repos\backup sql server\backup sql server\bin\Debug\Microsoft.SqlServer.Dmf.Common.dll
+C:\Users\terre\source\repos\backup sql server\backup sql server\bin\Debug\Microsoft.SqlServer.Diagnostics.STrace.dll
+C:\Users\terre\source\repos\backup sql server\backup sql server\bin\Debug\Microsoft.SqlServer.ServiceBrokerEnum.dll
+C:\Users\terre\source\repos\backup sql server\backup sql server\bin\Debug\Microsoft.SqlServer.RegSvrEnum.dll
+C:\Users\terre\source\repos\backup sql server\backup sql server\bin\Debug\Microsoft.SqlServer.SqlTDiagM.dll
+C:\Users\terre\source\repos\backup sql server\backup sql server\obj\Debug\backup sql server.csprojAssemblyReference.cache
+C:\Users\terre\source\repos\backup sql server\backup sql server\obj\Debug\backup_sql_server.Properties.Resources.resources
+C:\Users\terre\source\repos\backup sql server\backup sql server\obj\Debug\backup sql server.csproj.GenerateResource.cache
+C:\Users\terre\source\repos\backup sql server\backup sql server\obj\Debug\backup sql server.csproj.CoreCompileInputs.cache
+C:\Users\terre\source\repos\backup sql server\backup sql server\obj\Debug\backup sql server.csproj.CopyComplete
+C:\Users\terre\source\repos\backup sql server\backup sql server\obj\Debug\backup sql server.exe
+C:\Users\terre\source\repos\backup sql server\backup sql server\obj\Debug\backup sql server.pdb
+C:\Users\terre\source\repos\backup sql server\backup sql server\obj\Debug\backup_sql_server.backuptotal.resources
+C:\Users\terre\source\repos\backup sql server\backup sql server\obj\Debug\backup_sql_server.principal.resources
+C:\Users\terre\source\repos\backup sql server\backup sql server\obj\Debug\backup_sql_server.restaurartotal.resources
+C:\Users\terre\source\repos\backup sql server\backup sql server\obj\Debug\backup_sql_server.listabd.resources
