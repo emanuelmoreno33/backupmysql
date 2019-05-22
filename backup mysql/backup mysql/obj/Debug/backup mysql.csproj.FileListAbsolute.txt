@@ -1,0 +1,24 @@
+C:\Users\terre\source\repos\backup mysql\backup mysql\bin\Debug\backup mysql.exe.config
+C:\Users\terre\source\repos\backup mysql\backup mysql\bin\Debug\backup mysql.exe
+C:\Users\terre\source\repos\backup mysql\backup mysql\bin\Debug\backup mysql.pdb
+C:\Users\terre\source\repos\backup mysql\backup mysql\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\terre\source\repos\backup mysql\backup mysql\bin\Debug\Google.Protobuf.dll
+C:\Users\terre\source\repos\backup mysql\backup mysql\bin\Debug\MySql.Data.dll
+C:\Users\terre\source\repos\backup mysql\backup mysql\bin\Debug\MySqlBackup.dll
+C:\Users\terre\source\repos\backup mysql\backup mysql\bin\Debug\Google.Protobuf.pdb
+C:\Users\terre\source\repos\backup mysql\backup mysql\bin\Debug\Google.Protobuf.xml
+C:\Users\terre\source\repos\backup mysql\backup mysql\bin\Debug\MySql.Data.xml
+C:\Users\terre\source\repos\backup mysql\backup mysql\obj\Debug\backup mysql.csprojAssemblyReference.cache
+C:\Users\terre\source\repos\backup mysql\backup mysql\obj\Debug\backup_mysql.backuptotal.resources
+C:\Users\terre\source\repos\backup mysql\backup mysql\obj\Debug\backup_mysql.Form1.resources
+C:\Users\terre\source\repos\backup mysql\backup mysql\obj\Debug\backup_mysql.listardb.resources
+C:\Users\terre\source\repos\backup mysql\backup mysql\obj\Debug\backup_mysql.Properties.Resources.resources
+C:\Users\terre\source\repos\backup mysql\backup mysql\obj\Debug\backup_mysql.restauraciontotal.resources
+C:\Users\terre\source\repos\backup mysql\backup mysql\obj\Debug\backup mysql.csproj.GenerateResource.cache
+C:\Users\terre\source\repos\backup mysql\backup mysql\obj\Debug\backup mysql.csproj.CoreCompileInputs.cache
+C:\Users\terre\source\repos\backup mysql\backup mysql\obj\Debug\backup mysql.csproj.CopyComplete
+C:\Users\terre\source\repos\backup mysql\backup mysql\obj\Debug\backup mysql.exe
+C:\Users\terre\source\repos\backup mysql\backup mysql\obj\Debug\backup mysql.pdb
+C:\Users\terre\source\repos\backup mysql\backup mysql\obj\Debug\backup_mysql.backupparcial.resources
+C:\Users\terre\source\repos\backup mysql\backup mysql\obj\Debug\backup_mysql.restauracionespecifica.resources
+C:\Users\terre\source\repos\backup mysql\backup mysql\obj\Debug\backup_mysql.backuptodas.resources
