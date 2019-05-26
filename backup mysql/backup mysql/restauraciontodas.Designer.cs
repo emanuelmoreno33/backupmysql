@@ -46,8 +46,9 @@
             this.btnconectar.Name = "btnconectar";
             this.btnconectar.Size = new System.Drawing.Size(129, 72);
             this.btnconectar.TabIndex = 72;
-            this.btnconectar.Text = "Respaldar todas las bases de datos";
+            this.btnconectar.Text = "Restaurar todas las bases de datos";
             this.btnconectar.UseVisualStyleBackColor = true;
+            this.btnconectar.Click += new System.EventHandler(this.btnconectar_Click);
             // 
             // numpuerto
             // 
@@ -141,7 +142,8 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "restauraciontodas";
-            this.Text = "restauraciontodas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Restauración - Todas las bases de datos";
             ((System.ComponentModel.ISupportInitialize)(this.numpuerto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -11,14 +11,82 @@ using MySql.Data.MySqlClient;
 
 namespace backup_mysql
 {
-    public partial class backuptodas : Form
+    public partial class backupalgunas : Form
     {
-        public backuptodas()
+        public backupalgunas()
         {
             InitializeComponent();
         }
 
-        private void btnconectar_Click(object sender, EventArgs e)
+        private void llenarbd(MySqlConnection conexion)
+        {
+            MySqlDataReader reader;
+            try
+            {
+                conexion.Open();
+                MySqlCommand query = new MySqlCommand("show databases", conexion);
+                reader = query.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        switch (reader.GetString(0))
+                        {
+                            case "sys":
+                            case "performance_schema":
+                            case "mysql":
+                            case "information_schema":
+                            case "sakila":
+                            case "world":
+                                continue;
+                        }
+                        checkedListBox1.Items.Add(reader.GetString(0));
+                    }
+                }
+
+                conexion.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                conexion.Close();
+            }
+        }
+
+        private List<String> hacerlista()
+        {
+            List<String> lista = new List<string>();
+            for (int i = 0; i < checkedListBox1.CheckedItems.Count; i++)
+            {
+                lista.Add(checkedListBox1.CheckedItems[i].ToString());
+            }
+            return lista;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+              string conex = "server=" + txtservidor.Text + ";port=" + numpuerto.Value + ";username=" + txtusuario.Text + ";password=" + txtcontra.Text + ";";
+                MySqlConnection conexion = new MySqlConnection(conex);
+                try
+                {
+                    conexion.Open();
+                    checkedListBox1.Enabled = true;
+                    btnrespaldo.Enabled = true;
+                    conexion.Close();
+                    llenarbd(conexion);
+                    MessageBox.Show("Conexión con éxito", "Aviso");
+                }
+                catch (MySqlException error)
+                {
+                    MessageBox.Show(error.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+        }
+
+        private void btnrespaldo_Click(object sender, EventArgs e)
         {
             try
             {
@@ -36,13 +104,6 @@ namespace backup_mysql
                                 conn.Open();
                                 cmd.Connection = conn;
 
-                                cmd.CommandText = "show databases;";
-                                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                                DataTable dtDbList = new DataTable();
-                                da.Fill(dtDbList);
-
-
-
                                 resultado = MessageBox.Show("¿Usar ubicación predeterminada?", "Aviso", MessageBoxButtons.YesNo);
                                 if (resultado == DialogResult.No)
                                 {
@@ -52,9 +113,11 @@ namespace backup_mysql
 
                                         string defaultFolder = folder.SelectedPath;
 
-                                        foreach (DataRow dr in dtDbList.Rows)
+                                        List<String> lista = hacerlista();
+
+                                        foreach (String dr in lista)
                                         {
-                                            string dbname = dr[0] + "";
+                                            string dbname = dr + "";
 
                                             // skip mysql default system tables
                                             switch (dbname)
@@ -82,9 +145,11 @@ namespace backup_mysql
                                 {
                                     string defaultFolder = "D:\\Usuarios\\backup";
 
-                                    foreach (DataRow dr in dtDbList.Rows)
+                                    List<String> lista = hacerlista();
+
+                                    foreach (String dr in lista)
                                     {
-                                        string dbname = dr[0] + "";
+                                        string dbname = dr + "";
 
                                         // skip mysql default system tables
                                         switch (dbname)
@@ -109,16 +174,16 @@ namespace backup_mysql
                                     MessageBox.Show("Respaldo creado satisfactoriamente", "Aviso", MessageBoxButtons.OK);
                                 }
                                 conn.Close();
-                                
+
                             }
                         }
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString(), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-         }
+        }
     }
-}
+    }

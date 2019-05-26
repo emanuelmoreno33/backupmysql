@@ -32,6 +32,16 @@ namespace backup_mysql
                 {
                     while (reader.Read())
                     {
+                        switch (reader.GetString(0))
+                        {
+                            case "sys":
+                            case "performance_schema":
+                            case "mysql":
+                            case "information_schema":
+                            case "sakila":
+                            case "world":
+                                continue;
+                        }
                         combobd.Items.Add(reader.GetString(0));
                     }
                 }
@@ -56,6 +66,7 @@ namespace backup_mysql
                 btnrespaldo.Enabled = true;
                 conexion.Close();
                 llenarbd(conexion);
+                MessageBox.Show("Conexión con éxito", "Aviso");
             }
             catch (MySqlException error)
             {
@@ -77,7 +88,7 @@ namespace backup_mysql
                 if (resultado == DialogResult.No)
                 {
                     SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-                    saveFileDialog1.InitialDirectory = @"D:\";
+                    saveFileDialog1.InitialDirectory = @"D:\\Usuarios\\backup\\";
                     saveFileDialog1.Title = "Save text Files";
                     saveFileDialog1.DefaultExt = "sql";
                     saveFileDialog1.Filter = "Archivo de respaldo (*.sql)|*.sql";
@@ -93,9 +104,10 @@ namespace backup_mysql
                                 {
                                     cmd.Connection = conn;
                                     conn.Open();
+                                    mb.ExportInfo.AddCreateDatabase = true;
                                     mb.ExportToFile(saveFileDialog1.FileName);
                                     conn.Close();
-                                    MessageBox.Show("Respaldo creado satisfactoriamente", "Aviso", MessageBoxButtons.OK);
+                                    MessageBox.Show("Base de datos respaldada con éxito", "Aviso", MessageBoxButtons.OK);
                                 }
                             }
                         }
@@ -114,14 +126,16 @@ namespace backup_mysql
                                 conn.Open();
                                 if (nombre != "")
                                 {
+                                    mb.ExportInfo.AddCreateDatabase = true;
                                     mb.ExportToFile("D:\\Usuarios\\backup\\"+nombre);
                                 }
                                 else
                                 {
+                                    mb.ExportInfo.AddCreateDatabase = true;
                                     mb.ExportToFile("D:\\Usuarios\\backup\\"+combobd.Text+".sql");
                                 }
                                 conn.Close();
-                                MessageBox.Show("Respaldo creado satisfactoriamente", "Aviso", MessageBoxButtons.OK);
+                                MessageBox.Show("Base de datos respaldada con éxito", "Aviso", MessageBoxButtons.OK);
                             }
                         }
                     }
@@ -131,6 +145,11 @@ namespace backup_mysql
             {
                 MessageBox.Show(ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void backuptotal_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

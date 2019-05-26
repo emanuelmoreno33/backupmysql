@@ -101,9 +101,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 94);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 17);
+            this.label3.Size = new System.Drawing.Size(85, 17);
             this.label3.TabIndex = 45;
-            this.label3.Text = "Contraseña";
+            this.label3.Text = "Contraseña:";
             // 
             // txtusuario
             // 
@@ -178,7 +178,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "backuptotal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "backuptotal";
+            this.Text = "Backup - Una sola base de datos";
+            this.Load += new System.EventHandler(this.backuptotal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numpuerto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

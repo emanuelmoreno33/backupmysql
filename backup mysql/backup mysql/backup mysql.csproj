@@ -68,6 +68,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="backupalgunas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="backupalgunas.Designer.cs">
+      <DependentUpon>backupalgunas.cs</DependentUpon>
+    </Compile>
     <Compile Include="backupparcial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     <Compile Include="restauraciontotal.Designer.cs">
       <DependentUpon>restauraciontotal.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="backupalgunas.resx">
+      <DependentUpon>backupalgunas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="backupparcial.resx">
       <DependentUpon>backupparcial.cs</DependentUpon>
     </EmbeddedResource>

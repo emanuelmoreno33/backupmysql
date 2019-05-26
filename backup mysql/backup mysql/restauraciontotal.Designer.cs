@@ -96,9 +96,9 @@
             this.btnrespaldo.Enabled = false;
             this.btnrespaldo.Location = new System.Drawing.Point(109, 199);
             this.btnrespaldo.Name = "btnrespaldo";
-            this.btnrespaldo.Size = new System.Drawing.Size(101, 45);
+            this.btnrespaldo.Size = new System.Drawing.Size(101, 60);
             this.btnrespaldo.TabIndex = 24;
-            this.btnrespaldo.Text = "Restauracion";
+            this.btnrespaldo.Text = "Elegir archivo para restauración";
             this.btnrespaldo.UseVisualStyleBackColor = true;
             this.btnrespaldo.Click += new System.EventHandler(this.btnrespaldo_Click);
             // 
@@ -142,7 +142,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(391, 311);
+            this.ClientSize = new System.Drawing.Size(352, 271);
             this.Controls.Add(this.btnconectar);
             this.Controls.Add(this.numpuerto);
             this.Controls.Add(this.label5);
@@ -156,7 +156,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "restauraciontotal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "restauraciontotal";
+            this.Text = "Restauración - Un archivo";
             this.Load += new System.EventHandler(this.restauraciontotal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numpuerto)).EndInit();
             this.ResumeLayout(false);

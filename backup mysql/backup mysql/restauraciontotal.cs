@@ -34,6 +34,7 @@ namespace backup_mysql
                 conexion.Open();
                 btnrespaldo.Enabled = true;
                 conexion.Close();
+                MessageBox.Show("Conexión con éxito", "Aviso");
             }
             catch(MySqlException error)
             {
@@ -45,7 +46,7 @@ namespace backup_mysql
         private void btnrespaldo_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.InitialDirectory = @"D:\";
+            openFileDialog1.InitialDirectory = @"D:\\Usuarios\\backup\\";
             openFileDialog1.Title = "Buscar el respaldo";
             openFileDialog1.CheckFileExists = true;
             openFileDialog1.DefaultExt = "sql";
@@ -67,7 +68,7 @@ namespace backup_mysql
                                 conn.Open();
                                 mb.ImportFromFile(openFileDialog1.FileName);
                                 conn.Close();
-                                MessageBox.Show("Restauracion completada", "Aviso",MessageBoxButtons.OK);
+                                MessageBox.Show("Restauración completada", "Aviso",MessageBoxButtons.OK);
                             }
                             catch(Exception ex)
                             {

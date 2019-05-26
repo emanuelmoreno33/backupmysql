@@ -32,6 +32,16 @@ namespace backup_mysql
                 {
                     while (reader.Read())
                     {
+                        switch (reader.GetString(0))
+                        {
+                            case "sys":
+                            case "performance_schema":
+                            case "mysql":
+                            case "information_schema":
+                            case "sakila":
+                            case "world":
+                                continue;
+                        }
                         combobd.Items.Add(reader.GetString(0));
                     }
                 }
@@ -56,6 +66,7 @@ namespace backup_mysql
                 groupBox1.Enabled = true;
                 conexion.Close();
                 llenarbd(conexion);
+                MessageBox.Show("Conexión con éxito", "Aviso");
             }
             catch (MySqlException error)
             {
@@ -66,7 +77,7 @@ namespace backup_mysql
         private void btnrespaldo_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.InitialDirectory = @"D:\";
+            openFileDialog1.InitialDirectory = @"D:\\Usuarios\\backup\\";
             openFileDialog1.Title = "Buscar el respaldo";
             openFileDialog1.CheckFileExists = true;
             openFileDialog1.DefaultExt = "sql";
@@ -89,7 +100,6 @@ namespace backup_mysql
                                     mb.ImportInfo.TargetDatabase = combobd.Text;
                                 }
 
-
                                 cmd.Connection = conn;
                                 conn.Open();
                                 mb.ImportInfo.IgnoreSqlError = checkBox3.Checked;
@@ -107,25 +117,6 @@ namespace backup_mysql
             }
         }
 
-        private string obtenerdireccion()
-        {
-            FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
-            folderBrowserDialog1.ShowNewFolderButton = true;
-            folderBrowserDialog1.Description = "Seleccione donde colocar el Archivo Log";
-
-            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
-            {
-                return folderBrowserDialog1.SelectedPath;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        
-
-        
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox2.Checked == true)

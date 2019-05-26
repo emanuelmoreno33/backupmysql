@@ -22,3 +22,5 @@ C:\Users\terre\source\repos\backup mysql\backup mysql\obj\Debug\backup mysql.pdb
 C:\Users\terre\source\repos\backup mysql\backup mysql\obj\Debug\backup_mysql.backupparcial.resources
 C:\Users\terre\source\repos\backup mysql\backup mysql\obj\Debug\backup_mysql.restauracionespecifica.resources
 C:\Users\terre\source\repos\backup mysql\backup mysql\obj\Debug\backup_mysql.backuptodas.resources
+C:\Users\terre\source\repos\backup mysql\backup mysql\obj\Debug\backup_mysql.restauraciontodas.resources
+C:\Users\terre\source\repos\backup mysql\backup mysql\obj\Debug\backup_mysql.backupalgunas.resources

@@ -482,7 +482,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "backupparcial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Backup Parciales/Especificos";
+            this.Text = "Backup - Parcial / Especifico";
             ((System.ComponentModel.ISupportInitialize)(this.numpuerto)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

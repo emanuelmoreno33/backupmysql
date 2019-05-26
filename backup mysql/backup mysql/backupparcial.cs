@@ -32,6 +32,16 @@ namespace backup_mysql
                 {
                     while (reader.Read())
                     {
+                        switch (reader.GetString(0))
+                        {
+                            case "sys":
+                            case "performance_schema":
+                            case "mysql":
+                            case "information_schema":
+                            case "sakila":
+                            case "world":
+                                continue;
+                        }
                         combobd.Items.Add(reader.GetString(0));
                     }
                 }
@@ -101,7 +111,6 @@ namespace backup_mysql
             {
                 conexion.Open();
                 combobd.Enabled = true;
-                btnrespaldo.Enabled = true;
                 button1.Enabled = true;
                 conexion.Close();
                 llenarbd(conexion);
@@ -154,58 +163,149 @@ namespace backup_mysql
         {
             try
             {
-                conex = "server=" + txtservidor.Text + ";port=" + numpuerto.Value + ";username=" + txtusuario.Text + ";password=" + txtcontra.Text + ";database=" + combobd.Text + ";";
-                SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-                saveFileDialog1.InitialDirectory = @"D:\";
-                saveFileDialog1.Title = "Save text Files";
-                saveFileDialog1.DefaultExt = "sql";
-                saveFileDialog1.Filter = "Archivo de respaldo (*.sql)|*.sql";
-                saveFileDialog1.FilterIndex = 2;
-                saveFileDialog1.RestoreDirectory = true;
-                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                DialogResult resultado = MessageBox.Show("Usar ubicación predeterminada", "Aviso", MessageBoxButtons.YesNo);
+                if (resultado == DialogResult.No)
                 {
+                    conex = "server=" + txtservidor.Text + ";port=" + numpuerto.Value + ";username=" + txtusuario.Text + ";password=" + txtcontra.Text + ";database=" + combobd.Text + ";";
+                    SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+                    saveFileDialog1.InitialDirectory = @"D:\\Usuarios\\backup\\";
+                    saveFileDialog1.Title = "Save text Files";
+                    saveFileDialog1.DefaultExt = "sql";
+                    saveFileDialog1.Filter = "Archivo de respaldo (*.sql)|*.sql";
+                    saveFileDialog1.FilterIndex = 2;
+                    saveFileDialog1.RestoreDirectory = true;
+                    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        using (MySqlConnection conn = new MySqlConnection(conex))
+                        {
+                            using (MySqlCommand cmd = new MySqlCommand())
+                            {
+                                using (MySqlBackup mb = new MySqlBackup(cmd))
+                                {
+                                    bool crearbd = checkagregarbd.Checked;
+                                    bool tablaestructura = exportarextructura.Checked;
+                                    bool procedimientos = exportarprocedimiento.Checked;
+                                    bool funciones = exportarfuncion.Checked;
+                                    bool triggers = exportartrigger.Checked;
+                                    bool vistas = exportarvista.Checked;
+                                    bool eventos = exportarevento.Checked;
+                                    bool renglones = exportarrenglon.Checked;
+                                    bool encriptarar = encriptararchivo.Checked;
+
+
+                                    List<String> lista = new List<string>();
+                                    cmd.Connection = conn;
+                                    conn.Open();
+                                    mb.ExportInfo.AddCreateDatabase = crearbd;
+                                    mb.ExportInfo.ExportTableStructure = tablaestructura;
+                                    mb.ExportInfo.ExportProcedures = procedimientos;
+                                    mb.ExportInfo.ExportFunctions = funciones;
+                                    mb.ExportInfo.ExportTriggers = triggers;
+                                    mb.ExportInfo.ExportViews = vistas;
+                                    mb.ExportInfo.ExportEvents = eventos;
+                                    mb.ExportInfo.ExportRows = renglones;
+                                    if (radioButton2.Checked == true)
+                                    {
+                                        lista = hacerlista();
+                                        mb.ExportInfo.TablesToBeExportedList = lista;
+                                    }
+                                    else if (radioButton3.Checked == true)
+                                    {
+                                        lista = hacerlista();
+                                        mb.ExportInfo.ExcludeTables = lista;
+                                    }
+
+                                    mb.ExportToFile(saveFileDialog1.FileName);
+                                    conn.Close();
+                                    MessageBox.Show("Base de datos respaldada con éxito", "Aviso", MessageBoxButtons.OK);
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    string nombre = Microsoft.VisualBasic.Interaction.InputBox("Nombre del archivo", "Aviso", combobd.Text + ".sql");
                     using (MySqlConnection conn = new MySqlConnection(conex))
                     {
                         using (MySqlCommand cmd = new MySqlCommand())
                         {
                             using (MySqlBackup mb = new MySqlBackup(cmd))
                             {
-                                bool crearbd = checkagregarbd.Checked;
-                                bool tablaestructura = exportarextructura.Checked;
-                                bool procedimientos = exportarprocedimiento.Checked;
-                                bool funciones = exportarfuncion.Checked;
-                                bool triggers = exportartrigger.Checked;
-                                bool vistas = exportarvista.Checked;
-                                bool eventos = exportarevento.Checked;
-                                bool renglones = exportarrenglon.Checked;
-                                bool encriptarar = encriptararchivo.Checked;
-                                
+                                if (nombre != "")
+                                {
+                                    bool crearbd = checkagregarbd.Checked;
+                                    bool tablaestructura = exportarextructura.Checked;
+                                    bool procedimientos = exportarprocedimiento.Checked;
+                                    bool funciones = exportarfuncion.Checked;
+                                    bool triggers = exportartrigger.Checked;
+                                    bool vistas = exportarvista.Checked;
+                                    bool eventos = exportarevento.Checked;
+                                    bool renglones = exportarrenglon.Checked;
+                                    bool encriptarar = encriptararchivo.Checked;
 
-                                List<String> lista = new List<string>();
-                                cmd.Connection = conn;
-                                conn.Open();
-                                mb.ExportInfo.AddCreateDatabase = crearbd;
-                                mb.ExportInfo.ExportTableStructure = tablaestructura;
-                                mb.ExportInfo.ExportProcedures = procedimientos;
-                                mb.ExportInfo.ExportFunctions = funciones;
-                                mb.ExportInfo.ExportTriggers = triggers;
-                                mb.ExportInfo.ExportViews = vistas;
-                                mb.ExportInfo.ExportEvents = eventos;
-                                mb.ExportInfo.ExportRows = renglones;
-                                if (radioButton2.Checked == true)
-                                {
-                                    lista = hacerlista();
-                                    mb.ExportInfo.TablesToBeExportedList = lista;
+
+                                    List<String> lista = new List<string>();
+                                    cmd.Connection = conn;
+                                    conn.Open();
+                                    mb.ExportInfo.AddCreateDatabase = crearbd;
+                                    mb.ExportInfo.ExportTableStructure = tablaestructura;
+                                    mb.ExportInfo.ExportProcedures = procedimientos;
+                                    mb.ExportInfo.ExportFunctions = funciones;
+                                    mb.ExportInfo.ExportTriggers = triggers;
+                                    mb.ExportInfo.ExportViews = vistas;
+                                    mb.ExportInfo.ExportEvents = eventos;
+                                    mb.ExportInfo.ExportRows = renglones;
+                                    if (radioButton2.Checked == true)
+                                    {
+                                        lista = hacerlista();
+                                        mb.ExportInfo.TablesToBeExportedList = lista;
+                                    }
+                                    else if (radioButton3.Checked == true)
+                                    {
+                                        lista = hacerlista();
+                                        mb.ExportInfo.ExcludeTables = lista;
+                                    }
+                                    mb.ExportToFile("D:\\Usuarios\\backup\\" + nombre);
                                 }
-                                else if (radioButton3.Checked == true)
+                                else
                                 {
-                                    lista = hacerlista();
-                                    mb.ExportInfo.ExcludeTables = lista;
+                                    bool crearbd = checkagregarbd.Checked;
+                                    bool tablaestructura = exportarextructura.Checked;
+                                    bool procedimientos = exportarprocedimiento.Checked;
+                                    bool funciones = exportarfuncion.Checked;
+                                    bool triggers = exportartrigger.Checked;
+                                    bool vistas = exportarvista.Checked;
+                                    bool eventos = exportarevento.Checked;
+                                    bool renglones = exportarrenglon.Checked;
+                                    bool encriptarar = encriptararchivo.Checked;
+
+
+                                    List<String> lista = new List<string>();
+                                    cmd.Connection = conn;
+                                    conn.Open();
+                                    mb.ExportInfo.AddCreateDatabase = crearbd;
+                                    mb.ExportInfo.ExportTableStructure = tablaestructura;
+                                    mb.ExportInfo.ExportProcedures = procedimientos;
+                                    mb.ExportInfo.ExportFunctions = funciones;
+                                    mb.ExportInfo.ExportTriggers = triggers;
+                                    mb.ExportInfo.ExportViews = vistas;
+                                    mb.ExportInfo.ExportEvents = eventos;
+                                    mb.ExportInfo.ExportRows = renglones;
+                                    if (radioButton2.Checked == true)
+                                    {
+                                        lista = hacerlista();
+                                        mb.ExportInfo.TablesToBeExportedList = lista;
+                                    }
+                                    else if (radioButton3.Checked == true)
+                                    {
+                                        lista = hacerlista();
+                                        mb.ExportInfo.ExcludeTables = lista;
+                                    }
+                                    mb.ExportToFile("D:\\Usuarios\\backup\\" + combobd.Text + ".sql");
                                 }
-                                
-                                mb.ExportToFile(saveFileDialog1.FileName);
                                 conn.Close();
-                                MessageBox.Show("Base de datos respaldada con exito", "Aviso", MessageBoxButtons.OK);
+                                MessageBox.Show("Base de datos respaldada con éxito", "Aviso", MessageBoxButtons.OK);
                             }
                         }
                     }

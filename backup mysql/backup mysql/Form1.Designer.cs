@@ -33,12 +33,15 @@
             this.totalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.todasLasBasesDeDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unaSolaBaseDeDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.algunasBasesDeDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parcialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restauraciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.totalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.todasLasBasesDeDatosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.soloUnaBaseDeDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parcialToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.abrirUbicacionPredeterminadaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listarBasesDeDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -49,6 +52,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.respaldoToolStripMenuItem,
             this.restauraciToolStripMenuItem,
+            this.abrirUbicacionPredeterminadaToolStripMenuItem,
+            this.listarBasesDeDatosToolStripMenuItem,
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -69,9 +74,10 @@
             // 
             this.totalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.todasLasBasesDeDatosToolStripMenuItem,
-            this.unaSolaBaseDeDatosToolStripMenuItem});
+            this.unaSolaBaseDeDatosToolStripMenuItem,
+            this.algunasBasesDeDatosToolStripMenuItem});
             this.totalToolStripMenuItem.Name = "totalToolStripMenuItem";
-            this.totalToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.totalToolStripMenuItem.Size = new System.Drawing.Size(151, 26);
             this.totalToolStripMenuItem.Text = "Total";
             this.totalToolStripMenuItem.Click += new System.EventHandler(this.totalToolStripMenuItem_Click);
             // 
@@ -88,14 +94,21 @@
             this.unaSolaBaseDeDatosToolStripMenuItem.Name = "unaSolaBaseDeDatosToolStripMenuItem";
             this.unaSolaBaseDeDatosToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
             this.unaSolaBaseDeDatosToolStripMenuItem.Text = "Una sola base de datos";
-            this.unaSolaBaseDeDatosToolStripMenuItem.ToolTipText = "Respalda una sola base de datos.\r\nNo agrega la sentencia \"CREATE DATABASE\".";
+            this.unaSolaBaseDeDatosToolStripMenuItem.ToolTipText = "Respalda una sola base de datos.";
             this.unaSolaBaseDeDatosToolStripMenuItem.Click += new System.EventHandler(this.unaSolaBaseDeDatosToolStripMenuItem_Click);
+            // 
+            // algunasBasesDeDatosToolStripMenuItem
+            // 
+            this.algunasBasesDeDatosToolStripMenuItem.Name = "algunasBasesDeDatosToolStripMenuItem";
+            this.algunasBasesDeDatosToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
+            this.algunasBasesDeDatosToolStripMenuItem.Text = "Algunas bases de datos";
+            this.algunasBasesDeDatosToolStripMenuItem.Click += new System.EventHandler(this.algunasBasesDeDatosToolStripMenuItem_Click);
             // 
             // parcialToolStripMenuItem
             // 
             this.parcialToolStripMenuItem.Name = "parcialToolStripMenuItem";
-            this.parcialToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.parcialToolStripMenuItem.Text = "Especifico.";
+            this.parcialToolStripMenuItem.Size = new System.Drawing.Size(151, 26);
+            this.parcialToolStripMenuItem.Text = "Especifico";
             this.parcialToolStripMenuItem.ToolTipText = "Hace un respaldo indicando que guardar.";
             this.parcialToolStripMenuItem.Click += new System.EventHandler(this.parcialToolStripMenuItem_Click);
             // 
@@ -114,7 +127,7 @@
             this.todasLasBasesDeDatosToolStripMenuItem1,
             this.soloUnaBaseDeDatosToolStripMenuItem});
             this.totalToolStripMenuItem1.Name = "totalToolStripMenuItem1";
-            this.totalToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
+            this.totalToolStripMenuItem1.Size = new System.Drawing.Size(150, 26);
             this.totalToolStripMenuItem1.Text = "Total";
             this.totalToolStripMenuItem1.Click += new System.EventHandler(this.totalToolStripMenuItem1_Click);
             // 
@@ -131,23 +144,40 @@
             this.soloUnaBaseDeDatosToolStripMenuItem.Name = "soloUnaBaseDeDatosToolStripMenuItem";
             this.soloUnaBaseDeDatosToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
             this.soloUnaBaseDeDatosToolStripMenuItem.Text = "Solo una base de datos";
-            this.soloUnaBaseDeDatosToolStripMenuItem.ToolTipText = "Funciona cuando ya se tiene\r\nseleccionada la base de datos\r\ncon \"CREATE DATABASE\"" +
-    "";
+            this.soloUnaBaseDeDatosToolStripMenuItem.ToolTipText = "Restaura solo una base\r\nde datos.";
             this.soloUnaBaseDeDatosToolStripMenuItem.Click += new System.EventHandler(this.soloUnaBaseDeDatosToolStripMenuItem_Click);
             // 
             // parcialToolStripMenuItem1
             // 
             this.parcialToolStripMenuItem1.Name = "parcialToolStripMenuItem1";
-            this.parcialToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
+            this.parcialToolStripMenuItem1.Size = new System.Drawing.Size(150, 26);
             this.parcialToolStripMenuItem1.Text = "Especifica";
-            this.parcialToolStripMenuItem1.ToolTipText = "Restaura cuando no se tiene\r\nel \"CREATE DATABASE\"";
+            this.parcialToolStripMenuItem1.ToolTipText = "Restaura seleccionando la\r\nbase de datos manualmente,\r\nasi como ignorar los error" +
+    "es\r\nSQL";
             this.parcialToolStripMenuItem1.Click += new System.EventHandler(this.parcialToolStripMenuItem1_Click);
+            // 
+            // abrirUbicacionPredeterminadaToolStripMenuItem
+            // 
+            this.abrirUbicacionPredeterminadaToolStripMenuItem.Name = "abrirUbicacionPredeterminadaToolStripMenuItem";
+            this.abrirUbicacionPredeterminadaToolStripMenuItem.Size = new System.Drawing.Size(233, 24);
+            this.abrirUbicacionPredeterminadaToolStripMenuItem.Text = "Abrir ubicación predeterminada";
+            this.abrirUbicacionPredeterminadaToolStripMenuItem.ToolTipText = "Abre el explorador de\r\narchivos con la ubicación\r\npredeterminada.";
+            this.abrirUbicacionPredeterminadaToolStripMenuItem.Click += new System.EventHandler(this.abrirUbicacionPredeterminadaToolStripMenuItem_Click);
+            // 
+            // listarBasesDeDatosToolStripMenuItem
+            // 
+            this.listarBasesDeDatosToolStripMenuItem.Name = "listarBasesDeDatosToolStripMenuItem";
+            this.listarBasesDeDatosToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
+            this.listarBasesDeDatosToolStripMenuItem.Text = "Listar bases de datos";
+            this.listarBasesDeDatosToolStripMenuItem.ToolTipText = "Muestras las bases de datos y sus tablas";
+            this.listarBasesDeDatosToolStripMenuItem.Click += new System.EventHandler(this.listarBasesDeDatosToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(50, 24);
             this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.ToolTipText = "Sale del programa";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // Form1
@@ -159,7 +189,8 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Backup y respaldo";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -182,6 +213,9 @@
         private System.Windows.Forms.ToolStripMenuItem unaSolaBaseDeDatosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem todasLasBasesDeDatosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem soloUnaBaseDeDatosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem abrirUbicacionPredeterminadaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem algunasBasesDeDatosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listarBasesDeDatosToolStripMenuItem;
     }
 }
 

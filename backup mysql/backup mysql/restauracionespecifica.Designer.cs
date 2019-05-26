@@ -206,7 +206,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "restauracionespecifica";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "restauracionespecifica";
+            this.Text = "Restauración - Especifica";
             ((System.ComponentModel.ISupportInitialize)(this.numpuerto)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

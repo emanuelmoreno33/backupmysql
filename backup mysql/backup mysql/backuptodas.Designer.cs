@@ -42,7 +42,7 @@
             // 
             // btnconectar
             // 
-            this.btnconectar.Location = new System.Drawing.Point(109, 140);
+            this.btnconectar.Location = new System.Drawing.Point(98, 154);
             this.btnconectar.Name = "btnconectar";
             this.btnconectar.Size = new System.Drawing.Size(129, 72);
             this.btnconectar.TabIndex = 63;
@@ -142,7 +142,8 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "backuptodas";
-            this.Text = "backuptodas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Backup - Todas las bases de datos";
             ((System.ComponentModel.ISupportInitialize)(this.numpuerto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

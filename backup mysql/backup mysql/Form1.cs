@@ -85,5 +85,24 @@ namespace backup_mysql
             ventana.MdiParent = this;
             ventana.Show();
         }
+
+        private void abrirUbicacionPredeterminadaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(@"D:\\Usuarios\\backup\\");
+        }
+
+        private void algunasBasesDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            backupalgunas ventana = new backupalgunas();
+            ventana.MdiParent = this;
+            ventana.Show();
+        }
+
+        private void listarBasesDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listardb ventana = new listardb();
+            ventana.MdiParent = this;
+            ventana.Show();
+        }
     }
 }
